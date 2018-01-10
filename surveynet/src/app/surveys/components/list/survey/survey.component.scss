@@ -1,0 +1,30 @@
+.survey-card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    width: 150px;
+    height: 150px;
+    border: 1px solid #303133;
+    border-radius: 4px;
+    margin: 20px;
+
+    transition: all 0.3s ease-in-out; 
+
+    .survey-title {
+        margin: auto;
+        font-size: 18px;
+        color: #303133;
+        font-weight: bolder;
+        transition: all 0.3s ease-in-out; 
+    }
+
+    &:hover {
+        background-color: white;
+        cursor: pointer;
+
+        .survey-title {
+            color: blueviolet;
+        }
+    }
+}

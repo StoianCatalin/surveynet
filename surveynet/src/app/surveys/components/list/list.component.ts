@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../../../shared/services/authentication/authentication.service";
+import { AuthenticationService } from "../../../shared/services/authentication/authentication.service";
+import { SurveyModel } from '../../models';
+import { SurveysService } from '../../services';
+import { Surveys } from './surveys.mock';
 
 @Component({
   selector: 'sn-list',
@@ -8,16 +11,13 @@ import {AuthenticationService} from "../../../shared/services/authentication/aut
 })
 export class ListComponent implements OnInit {
 
-  public name: string;
+  public surveys: Array<SurveyModel>;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private surveysService: SurveysService) { }
 
   ngOnInit() {
-    this.name = this.auth.getUserInfo().email;
-  }
-
-  logout(): void {
-    this.auth.logout();
+    // this.surveysService.getSurveys().subscribe((surveys: Array<SurveyModel>) => this.surveys = surveys);
+    this.surveys = Surveys;
   }
 
 }

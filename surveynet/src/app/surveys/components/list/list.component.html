@@ -1,7 +1,7 @@
 <sn-navbar></sn-navbar>
-<div class="ui segment">
-  {{name}}
-  <button class="ui button blue" (click)="logout()">
-    Logout
-  </button>
-</div>
+<section class="main-conatiner">
+    <sn-survey *ngFor="let survey of surveys" [survey]="survey"></sn-survey>
+    <section class="add-form">
+        <i class="add circle icon"></i>
+    </section>
+</section>
