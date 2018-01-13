@@ -24,7 +24,7 @@ namespace surveynet
     {
       services.AddMvc();
       var connection = Configuration.GetConnectionString("SurveyNet");
-      services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("surveynet")));
+      services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("Persistance")));
       services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
