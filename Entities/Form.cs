@@ -12,7 +12,7 @@ namespace Entities
         public string Title { get; set; }
         public string Description { get; set; }
         [Required]
-        public List<Account> Autors { get; set; }
+        public Guid IdAuthor { get; set; }
         [Required]
         public List<Guid> Order { get; set; }
     }

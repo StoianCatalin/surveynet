@@ -10,5 +10,8 @@ namespace Entities
         public Guid Id { get; set; }
         [Required]
         public string QuestionText { get; set; }
+        [Required]
+        public int Type { get; set; }
+        public List<String> Answers { get; set; }
     }
 }

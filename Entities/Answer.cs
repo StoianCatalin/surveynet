@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Entities
 {
-    class QuestionMultiple : Question
+    public class Answer
     {
+        public Guid Id { get; set; }
         [Required]
-        public List<string> Answers { get; set; }
+        public Guid IdIntrebare { get; set; }
         [Required]
-        public bool Radio { get; set; }
+        public List<String> Answers { get; set; }
     }
 }
