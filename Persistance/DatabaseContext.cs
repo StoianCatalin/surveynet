@@ -22,7 +22,7 @@ namespace Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Account>()
+            modelBuilder.Entity<Account>() 
                 .HasIndex(acc => new { acc.Id, acc.Email })
                 .IsUnique(true);
         }
