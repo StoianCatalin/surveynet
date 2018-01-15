@@ -11,6 +11,9 @@ namespace Persistance
         { }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Form> Forms { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
 
         public Account SingleOrDefault(Func<object, bool> p)
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities
 {
-    class Form
+    public class Form
     {
         public Guid Id { get; set; }
         [Required]
