@@ -1,0 +1,64 @@
+<sn-navbar></sn-navbar>
+<section class="addsurvey container">
+  <div class="ui container cont">
+    <div class="ui segment">
+      <label>Titlu</label>
+      <div class="ui fluid input">
+        <input type="text"/>
+      </div>
+      <br/>
+
+      <label>Descriere</label>
+      <div class="ui fluid input">
+        <input type="text"/>
+      </div>
+      <br/>
+
+      <div *ngFor="let survey of survey.questions; let questionIndex = index;" class="question">
+        <div class="ui form">
+          <div class="two fields">
+            <div class="field">
+              <label>
+                Intrebare <i class="plus icon" (click)="addQuestion()"></i>
+                <i class="minus icon" (click)="removeQuestion(questionIndex)"></i>
+              </label>
+              <input name="shipping[first-name]" placeholder="Introdu intrebarea" type="text">
+            </div>
+            <div class="field">
+              <label>Optiune</label>
+              <select class="ui fluid dropdown" (change)="selectAnswer($event.target.value, questionIndex)" [ngModel]="model">
+                <option value="0">Raspuns scurt</option>
+                <option value="1">Raspunsuri multiple</option>
+                <option value="2">Casete de selectare</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="choosedAnswer == 0">
+          <label>Tip raspuns</label>
+          <div class="ui fluid input">
+            <input type="text" [disabled]="true" placeholder="Textul unui raspuns. "/>
+          </div>
+        </div>
+
+        <div *ngIf="(choosedAnswer == 1 || choosedAnswer == 2)">
+          <label>Raspunsuri</label>
+          <div class="ui fluid input margin-top-5" *ngFor="let input of survey.answers; let index=index;">
+            <input type="text" placeholder="Textul unui raspuns." value="{{input}}"
+                   (change)="modifyAnswer(index,questionIndex,$event.target.value);"/>
+            <i class="close icon close-icon" (click)="removeAnswer(index ,questionIndex)"></i>
+          </div>
+          <span class="add-more" (click)="addAnswer(questionIndex)">Adauga raspuns</span>
+        </div>
+      </div>
+
+      <button class="ui primary button align-center">
+        Salveaza
+      </button>
+
+
+    </div>
+
+  </div>
+</section>

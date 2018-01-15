@@ -1,7 +1,7 @@
 <sn-navbar></sn-navbar>
 <section class="main-conatiner">
     <sn-survey *ngFor="let survey of surveys" [survey]="survey"></sn-survey>
-    <section class="add-form">
+    <section class="add-form" (click)="goTo('/addform')">
         <i class="add circle icon"></i>
     </section>
 </section>
